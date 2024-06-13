@@ -1,0 +1,117 @@
+<div class="container mt-5">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    
+    <div class="row d-flex flex-column align-items-center">
+      <div class="col-lg-6 mt-3">
+        <div class="user">
+          <label for="address"><h3>USER INFORMATION</h3></label>
+        </div>
+  
+        <div class="form-group">
+          <label for="userId">User ID</label>
+          <input type="text" id="userId" class="form-control" formControlName="userId" [class.is-invalid] = "profile['userId'].invalid && profile['userId'].touched">
+          <div class="alert alert-danger" *ngIf="profile['userId'].invalid && profile['userId'].touched">
+            <div *ngIf="profile['userId'].errors && profile['userId'].errors['required']">
+              userId is required
+            </div>
+          </div>
+        </div>
+      
+      
+      <!-- userName input field -->
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" id="userName" class="form-control" formControlName="userName" [class.is-invalid] = "profile['userName'].invalid && profile['userName'].touched">
+        <div class="alert alert-danger" *ngIf="profile['userName'].invalid && profile['userName'].touched">
+          <div *ngIf="profile['userName'].errors && profile['userName'].errors['required']">
+            Name is required
+          </div>
+          <div *ngIf="profile['userName'].errors && profile['userName'].errors['pattern']">
+            only character used
+          </div>
+        </div>
+      </div>
+    
+      <!-- email input field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" [class.is-invalid] = "profile['email'].invalid && profile['email'].touched">
+        <div class="alert alert-danger" *ngIf="profile['email'].invalid && profile['email'].touched">
+          <div *ngIf="profile['email'].errors && profile['email'].errors['required']">
+            Email is required
+          </div>
+          <div *ngIf="profile['email'].errors && profile['email'].errors['pattern']">
+            Invalid Email 
+          </div>
+        </div>
+      </div>
+  
+  
+      <!-- child component -->
+        <div class="add mt-3"> 
+          <div class="row">
+            <div class="col-lg-8">
+              <label for="address"><h3>ADDRESS</h3></label>
+            </div>
+            <div class="col-lg-4">
+              <button class="btn btn-primary" type="button" (click) = "addAddress()">ADD</button>
+            </div>
+          </div>
+            <!-- Street input field -->
+        <div class="form-group">
+          <label for="street">Street</label>
+          <input type="text" id="street" class="form-control" formControlName="street"  [class.is-invalid] = "profile['street'].invalid && profile['street'].touched">
+          <div class="alert alert-danger" *ngIf="profile['street'].invalid && profile['street'].touched">
+              <div *ngIf="profile['street'].errors && profile['street'].errors['required']">
+                Street is required
+          </div>
+          </div>
+        </div>
+    
+  
+        <!-- State input field -->
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" id="state" class="form-control" formControlName="state"  [class.is-invalid] = "profile['state'].invalid && profile['state'].touched">
+          <div class="alert alert-danger" *ngIf="profile['state'].invalid && profile['state'].touched">
+              <div *ngIf="profile['state'].errors && profile['state'].errors['required']">
+                State is required
+              </div>
+          </div>
+        </div>
+    
+        <!-- City input field -->
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" class="form-control" formControlName="city"  [class.is-invalid] = "profile['city'].invalid && profile['city'].touched">
+          <div class="alert alert-danger" *ngIf="profile['city'].invalid && profile['city'].touched">
+              <div *ngIf="profile['city'].errors && profile['city'].errors['required']">
+                City is required
+              </div>
+          </div>
+        </div>
+    
+        
+        <!-- Zip Code input field -->
+        <div class="form-group">
+          <label for="zipCode">Zip Code</label>
+          <input type="text" id="zipCode" class="form-control" formControlName="zipCode"  [class.is-invalid] = "profile['zipCode'].invalid && profile['zipCode'].touched">
+          <div class="alert alert-danger" *ngIf="profile['zipCode'].invalid && profile['zipCode'].touched">
+              <div *ngIf="profile['zipCode'].errors && profile['zipCode'].errors['required']">
+                zipCode is required
+              </div>
+          </div>
+        </div>
+        </div>
+  
+    
+  
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </div>
+    </div>
+    <!-- Submit button -->
+    
+  </form>
+  </div>
+  
+  
